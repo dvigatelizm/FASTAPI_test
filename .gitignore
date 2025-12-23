@@ -1,0 +1,56 @@
+# =====================
+# Python
+# =====================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# =====================
+# Virtual environments
+# =====================
+.venv/
+venv/
+env/
+ENV/
+
+# =====================
+# Flask / FastAPI
+# =====================
+instance/
+*.sqlite3
+*.db
+
+# =====================
+# Tests / coverage
+# =====================
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# =====================
+# Logs
+# =====================
+*.log
+
+# =====================
+# IDEs / Editors
+# =====================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =====================
+# OS
+# =====================
+.DS_Store
+Thumbs.db
+
+# =====================
+# GitHub Actions artifacts
+# =====================
+*.env
+.env.*
