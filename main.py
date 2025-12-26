@@ -14,7 +14,7 @@ def generate_short_id(length=6):
     chars = string.ascii_letters + string.digits
     #print(chars)
     while True:
-        short_id = ''.join(random.choice(chars) for _ in renge(length))
+        short_id = ''.join(random.choice(chars) for _ in range(length))
         if short_id not in db:
             return short_id
 
@@ -30,6 +30,12 @@ def redirected_to_url(short_id: str):
         raise HTTPException(status_code=404, detail="URL not found")
     db[short_id]["clicks"] += 1
     return RedirectResponse(db[short_id]["url"])
+
+@app.get("/stats/{short_id}")
+def get_stats(short_id: str):
+    if short_id not in db:
+        raise HTTPException(status_code=404, detail="Short URL not found")
+    return {"url": db[short_id]["url"], "clicks": db[short_id]["clicks"]}
 
 
 
